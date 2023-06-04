@@ -1,0 +1,259 @@
+#-----------------------------------------------------------
+# Vivado v2018.2 (64-bit)
+# SW Build 2258646 on Thu Jun 14 20:03:12 MDT 2018
+# IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
+# Start of session at: Fri Jun  2 14:57:03 2023
+# Process ID: 23884
+# Current directory: F:/New folder/Nano-Processor-2
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent35340 F:\New folder\Nano-Processor-2\Nano Processor.xpr
+# Log file: F:/New folder/Nano-Processor-2/vivado.log
+# Journal file: F:/New folder/Nano-Processor-2\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project {F:/New folder/Nano-Processor-2/Nano Processor.xpr}
+update_compile_order -fileset sources_1
+update_compile_order -fileset sim_1
+# Disabling source management mode.  This is to allow the top design properties to be set without GUI intervention.
+set_property source_mgmt_mode None [current_project]
+set_property top TB_processor [get_filesets sim_1]
+set_property top_lib xil_defaultlib [get_filesets sim_1]
+# Re-enabling previously disabled source management mode.
+set_property source_mgmt_mode All [current_project]
+update_compile_order -fileset sim_1
+launch_simulation
+source TB_processor.tcl
+close_sim
+launch_simulation
+reset_run synth_1
+launch_runs synth_1 -jobs 8
+wait_on_run synth_1
+launch_simulation
+source TB_processor.tcl
+close_sim
+launch_simulation
+source TB_processor.tcl
+close_sim
+launch_simulation
+source TB_processor.tcl
+close_sim
+launch_simulation
+source TB_processor.tcl
+close_sim
+launch_simulation
+source TB_processor.tcl
+close_sim
+launch_simulation
+source TB_processor.tcl
+close_sim
+launch_simulation
+source TB_processor.tcl
+close_sim
+launch_simulation
+source TB_processor.tcl
+close_sim
+launch_simulation
+source TB_processor.tcl
+close_sim
+launch_simulation
+source TB_processor.tcl
+close_sim
+launch_simulation
+source TB_processor.tcl
+close_sim
+launch_simulation
+source TB_processor.tcl
+close_sim
+launch_simulation
+source TB_processor.tcl
+close_sim
+launch_simulation
+source TB_processor.tcl
+close_sim
+launch_simulation
+source TB_processor.tcl
+current_wave_config {Untitled 16}
+add_wave {{/TB_processor/UUT/Sub_Adder/S}} 
+save_wave_config {F:/New folder/Nano-Processor-2/TB_processor_behav.wcfg}
+add_files -fileset sim_1 -norecurse {{F:/New folder/Nano-Processor-2/TB_processor_behav.wcfg}}
+set_property xsim.view {{F:/New folder/Nano-Processor-2/TB_processor_behav.wcfg}} [get_filesets sim_1]
+close_sim
+launch_simulation
+open_wave_config {F:/New folder/Nano-Processor-2/TB_processor_behav.wcfg}
+source TB_processor.tcl
+# Disabling source management mode.  This is to allow the top design properties to be set without GUI intervention.
+set_property source_mgmt_mode None [current_project]
+set_property top TB_Adder_3 [get_filesets sim_1]
+set_property top_lib xil_defaultlib [get_filesets sim_1]
+# Re-enabling previously disabled source management mode.
+set_property source_mgmt_mode All [current_project]
+launch_simulation
+open_wave_config {F:/New folder/Nano-Processor-2/TB_processor_behav.wcfg}
+source TB_Adder_3.tcl
+update_compile_order -fileset sim_1
+close_sim
+launch_simulation
+open_wave_config {F:/New folder/Nano-Processor-2/TB_processor_behav.wcfg}
+source TB_Adder_3.tcl
+current_wave_config {TB_processor_behav.wcfg}
+add_wave {{/TB_Adder_3/A}} {{/TB_Adder_3/S}} 
+save_wave_config {F:/New folder/Nano-Processor-2/TB_processor_behav.wcfg}
+close_sim
+launch_simulation
+open_wave_config {F:/New folder/Nano-Processor-2/TB_processor_behav.wcfg}
+source TB_Adder_3.tcl
+close_sim
+launch_simulation
+open_wave_config {F:/New folder/Nano-Processor-2/TB_processor_behav.wcfg}
+source TB_Adder_3.tcl
+# Disabling source management mode.  This is to allow the top design properties to be set without GUI intervention.
+set_property source_mgmt_mode None [current_project]
+set_property top TB_processor [get_filesets sim_1]
+set_property top_lib xil_defaultlib [get_filesets sim_1]
+# Re-enabling previously disabled source management mode.
+set_property source_mgmt_mode All [current_project]
+update_compile_order -fileset sim_1
+current_sim simulation_17
+close_sim
+launch_simulation
+open_wave_config {F:/New folder/Nano-Processor-2/TB_processor_behav.wcfg}
+source TB_processor.tcl
+current_wave_config {TB_processor_behav.wcfg}
+add_wave {{/TB_processor}} 
+save_wave_config {F:/New folder/Nano-Processor-2/TB_processor_behav.wcfg}
+close_sim
+launch_simulation
+open_wave_config {F:/New folder/Nano-Processor-2/TB_processor_behav.wcfg}
+source TB_processor.tcl
+current_wave_config {TB_processor_behav.wcfg}
+add_wave {{/TB_processor/UUT/Programcounter}} 
+save_wave_config {F:/New folder/Nano-Processor-2/TB_processor_behav.wcfg}
+close_sim
+launch_simulation
+open_wave_config {F:/New folder/Nano-Processor-2/TB_processor_behav.wcfg}
+source TB_processor.tcl
+save_wave_config {F:/New folder/Nano-Processor-2/TB_processor_behav.wcfg}
+close_sim
+launch_simulation
+open_wave_config {F:/New folder/Nano-Processor-2/TB_processor_behav.wcfg}
+source TB_processor.tcl
+current_wave_config {TB_processor_behav.wcfg}
+add_wave {{/TB_processor/UUT/Registerbank/reg_1}} 
+current_wave_config {TB_processor_behav.wcfg}
+add_wave {{/TB_processor/UUT/Registerbank/reg_2}} 
+save_wave_config {F:/New folder/Nano-Processor-2/TB_processor_behav.wcfg}
+close_sim
+launch_simulation
+open_wave_config {F:/New folder/Nano-Processor-2/TB_processor_behav.wcfg}
+source TB_processor.tcl
+close_sim
+launch_simulation
+open_wave_config {F:/New folder/Nano-Processor-2/TB_processor_behav.wcfg}
+source TB_processor.tcl
+close_sim
+launch_simulation
+open_wave_config {F:/New folder/Nano-Processor-2/TB_processor_behav.wcfg}
+source TB_processor.tcl
+current_wave_config {TB_processor_behav.wcfg}
+add_wave {{/TB_processor/UUT/Instruction_Deco/Decoder_0}} 
+current_wave_config {TB_processor_behav.wcfg}
+add_wave {{/TB_processor/UUT/Instruction_Deco/J_flag}} 
+current_wave_config {TB_processor_behav.wcfg}
+add_wave {{/TB_processor/UUT/Instruction_Deco/Address_j}} 
+save_wave_config {F:/New folder/Nano-Processor-2/TB_processor_behav.wcfg}
+close_sim
+launch_simulation
+open_wave_config {F:/New folder/Nano-Processor-2/TB_processor_behav.wcfg}
+source TB_processor.tcl
+current_wave_config {TB_processor_behav.wcfg}
+add_wave {{/TB_processor/UUT/Instruction_Deco/Reg_sel_0}} 
+save_wave_config {F:/New folder/Nano-Processor-2/TB_processor_behav.wcfg}
+close_sim
+launch_simulation
+open_wave_config {F:/New folder/Nano-Processor-2/TB_processor_behav.wcfg}
+source TB_processor.tcl
+current_wave_config {TB_processor_behav.wcfg}
+add_wave {{/TB_processor/UUT/Instruction_Deco/Reg_sel_1}} 
+save_wave_config {F:/New folder/Nano-Processor-2/TB_processor_behav.wcfg}
+close_sim
+launch_simulation
+open_wave_config {F:/New folder/Nano-Processor-2/TB_processor_behav.wcfg}
+source TB_processor.tcl
+current_wave_config {TB_processor_behav.wcfg}
+add_wave {{/TB_processor/UUT/Instruction_Deco/Val}} 
+save_wave_config {F:/New folder/Nano-Processor-2/TB_processor_behav.wcfg}
+close_sim
+launch_simulation
+open_wave_config {F:/New folder/Nano-Processor-2/TB_processor_behav.wcfg}
+source TB_processor.tcl
+current_wave_config {TB_processor_behav.wcfg}
+add_wave {{/TB_processor/UUT/Instruction_Deco/Val}} 
+save_wave_config {F:/New folder/Nano-Processor-2/TB_processor_behav.wcfg}
+close_sim
+launch_simulation
+open_wave_config {F:/New folder/Nano-Processor-2/TB_processor_behav.wcfg}
+source TB_processor.tcl
+close_sim
+launch_simulation
+open_wave_config {F:/New folder/Nano-Processor-2/TB_processor_behav.wcfg}
+source TB_processor.tcl
+current_wave_config {TB_processor_behav.wcfg}
+add_wave {{/TB_processor/UUT/Instruction_Deco/Reg_check_j}} 
+save_wave_config {F:/New folder/Nano-Processor-2/TB_processor_behav.wcfg}
+close_sim
+launch_simulation
+open_wave_config {F:/New folder/Nano-Processor-2/TB_processor_behav.wcfg}
+source TB_processor.tcl
+close_sim
+launch_simulation
+open_wave_config {F:/New folder/Nano-Processor-2/TB_processor_behav.wcfg}
+source TB_processor.tcl
+close_sim
+launch_simulation
+open_wave_config {F:/New folder/Nano-Processor-2/TB_processor_behav.wcfg}
+source TB_processor.tcl
+close_sim
+launch_simulation
+open_wave_config {F:/New folder/Nano-Processor-2/TB_processor_behav.wcfg}
+source TB_processor.tcl
+close_sim
+launch_simulation
+open_wave_config {F:/New folder/Nano-Processor-2/TB_processor_behav.wcfg}
+source TB_processor.tcl
+close_sim
+launch_simulation
+open_wave_config {F:/New folder/Nano-Processor-2/TB_processor_behav.wcfg}
+source TB_processor.tcl
+close_sim
+launch_simulation
+open_wave_config {F:/New folder/Nano-Processor-2/TB_processor_behav.wcfg}
+source TB_processor.tcl
+close_sim
+launch_simulation
+open_wave_config {F:/New folder/Nano-Processor-2/TB_processor_behav.wcfg}
+source TB_processor.tcl
+close_sim
+launch_simulation
+open_wave_config {F:/New folder/Nano-Processor-2/TB_processor_behav.wcfg}
+source TB_processor.tcl
+close_sim
+launch_simulation
+open_wave_config {F:/New folder/Nano-Processor-2/TB_processor_behav.wcfg}
+source TB_processor.tcl
+close_sim
+launch_simulation
+open_wave_config {F:/New folder/Nano-Processor-2/TB_processor_behav.wcfg}
+source TB_processor.tcl
+close_sim
+launch_simulation
+open_wave_config {F:/New folder/Nano-Processor-2/TB_processor_behav.wcfg}
+source TB_processor.tcl
+close_sim
+launch_simulation
+open_wave_config {F:/New folder/Nano-Processor-2/TB_processor_behav.wcfg}
+source TB_processor.tcl
+reset_run synth_1
+launch_runs synth_1 -jobs 8
+wait_on_run synth_1
+save_wave_config {F:/New folder/Nano-Processor-2/TB_processor_behav.wcfg}
+close_sim
+close_sim
