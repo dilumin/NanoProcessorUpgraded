@@ -37,25 +37,32 @@ entity Processor is
     Reset : in STD_LOGIC;
     Zero : out STD_LOGIC;
     overflow : out STD_LOGIC;
+    Anode : out STD_LOGIC_VECTOR (3 downto 0);
+
     segment_out : out STD_LOGIC_VECTOR (6 downto 0)
---    test_mem_in : out STD_LOGIC_VECTOR (3 downto 0);
---    adder_in : out STD_LOGIC_VECTOR (2 downto 0);
---    test_val_1 : out STD_LOGIC_VECTOR (3 downto 0);
---    test_val_2 : out STD_LOGIC_VECTOR (3 downto 0);
---    test_sum : out STD_LOGIC_VECTOR (3 downto 0);
---    test_ls : out STD_LOGIC;
---    test_r2 : out STD_LOGIC_VECTOR (3 downto 0)
+
 
     );
 end Processor;
 
 architecture Behavioral of Processor is
 
+component Mux_4_to_1_4_bit
+    Port ( A0 : in STD_LOGIC_VECTOR (3 downto 0);
+       A1 : in STD_LOGIC_VECTOR (3 downto 0);
+       A2 : in STD_LOGIC_VECTOR (3 downto 0);
+       A3 : in STD_LOGIC_VECTOR (3 downto 0);
+       O : out STD_LOGIC_VECTOR (3 downto 0);
+       con : in STD_LOGIC_VECTOR (1 downto 0));
+
+end component;
+
+
 component Instruction_Decoder
-    Port( Instr : in STD_LOGIC_VECTOR (11 downto 0);
+    Port( Instr : in STD_LOGIC_VECTOR (12 downto 0);
           Reg_en : out STD_LOGIC_VECTOR (2 downto 0);
           Reg_check_j : in STD_LOGIC_VECTOR (3 downto 0);
-          L_sel : out STD_LOGIC;
+          L_sel : out STD_LOGIC_VECTOR (1 downto 0);
           Val : out STD_LOGIC_VECTOR (3 downto 0);
           Reg_sel_0 : out STD_LOGIC_VECTOR (2 downto 0);
           Reg_sel_1 : out STD_LOGIC_VECTOR (2 downto 0);
@@ -64,9 +71,17 @@ component Instruction_Decoder
           Address_j : out STD_LOGIC_VECTOR (2 downto 0));
 end component;
 
+component Multiplier_4_by_4
+    Port ( M : in STD_LOGIC_VECTOR (3 downto 0);
+       Q : in STD_LOGIC_VECTOR (3 downto 0);
+       P : out STD_LOGIC_VECTOR (3 downto 0)
+    );
+end component;
+
+
 component ROM
     Port ( Mem_S : in STD_LOGIC_VECTOR (2 downto 0);
-           I : out STD_LOGIC_VECTOR (11 downto 0));
+           I : out STD_LOGIC_VECTOR (12 downto 0));
 end component;
 
 component Slow_Clk
@@ -143,13 +158,18 @@ component Mux_2_to_1_bit_3
          data : out STD_LOGIC_VECTOR (6 downto 0));
   end component;
 
-signal Instruction_Bus : STD_LOGIC_VECTOR(11 downto 0);
+signal Instruction_Bus : STD_LOGIC_VECTOR(12 downto 0);
 signal Mux_3_out, pc_out, regi_en_bus,Adder_out,Address_to_jump,reg_sel_0,reg_sel_1 : STD_LOGIC_VECTOR (2 downto 0);
 signal M0,M1,M2,M3,M4,M5,M6,M7 : STD_LOGIC_VECTOR (3 downto 0);
-signal Mux_out_1,Mux_out_2,Sub_Add_out,reg_in,immediate_Value ,Reg_1_data: STD_LOGIC_VECTOR (3 downto 0);
-signal Add_Sub_Select,Jump_flag,Load_sel ,slowed_clk : STD_LOGIC;
+signal Mux_out_1,Mux_out_2,Sub_Add_out,reg_in,immediate_Value ,Reg_1_data , Mul_out: STD_LOGIC_VECTOR (3 downto 0);
+signal Add_Sub_Select,Jump_flag ,slowed_clk : STD_LOGIC;
+signal Load_sel : STD_LOGIC_VECTOR (1 downto 0);
+signal zero_temp , o_temp : std_logic;
 
 begin
+
+
+
 
 slow_down_clock : Slow_Clk
 port map (
@@ -213,13 +233,21 @@ Mux_8_to_1_bit_4_1 : Mux_8_to_1_bit_4
              O => Mux_out_2);
 --test_val_2 <= Mux_out_2;
 
+Multiplier : Multiplier_4_by_4
+port map (
+    M => Mux_out_2,
+    Q =>Mux_out_1,
+    P=> Mul_out
+    );
+
+
 Sub_Adder : Sub_Add_4_bit
     PORT MAP(
             A => Mux_out_2,
             B => Mux_out_1,
             M => Add_Sub_Select,
-            C => Zero,
-            V => overflow,
+            C => zero_temp,
+            V => o_temp,
             S => Sub_Add_out);
 --   test_sum <= Sub_Add_out;
 
@@ -230,6 +258,15 @@ Adder_3_bit : Adder_bit_3
             S => Adder_out
              );            
 --adder_in <= pc_out;
+Mux_4_to_1_4_bit_0 : Mux_4_to_1_4_bit
+port map (
+    A0 => immediate_Value,
+    A1 => Sub_Add_out,
+    A2 => "0000",
+    A3 => Mul_out,
+    O => reg_in,
+    con => Load_sel);
+
 
 Mux_2_to_1_bit_3_0 : Mux_2_to_1_bit_3
     PORT MAP(D0 => Adder_out,
@@ -241,12 +278,11 @@ Program_Rom : ROM
     PORT MAP(Mem_S => pc_out,
              I => Instruction_Bus);
 
-Mux_2_to_1_bit_4_0 : Mux_2_to_1_bit_4
-    PORT MAP(D0 => immediate_Value,
-             D1 => Sub_Add_out,
-             S => Load_sel,
-             O_Mux => reg_in);
---  test_mem_in <=  reg_in;
+--Mux_2_to_1_bit_4_0 : Mux_2_to_1_bit_4
+--    PORT MAP(D0 => immediate_Value,
+--             D1 => Sub_Add_out,
+--             S => Load_sel,
+--             O_Mux => reg_in);
              
 Instruction_Deco : Instruction_Decoder
     PORT MAP(Instr => Instruction_Bus,
@@ -261,10 +297,13 @@ Instruction_Deco : Instruction_Decoder
              Address_j => Address_to_jump);
              
 --  test_ls <=Load_sel;
+Zero <= zero_temp when Instruction_Bus(11 downto 10) = "00" else '0';
+overflow <= o_temp when Instruction_Bus(11 downto 10) = "00" else '0';
 
 Seven_segment : LUT_16_7_segment 
 port map (
     address => Reg_1_data,
     data  => segment_out );
+Anode <= "1110";
              
 end Behavioral;

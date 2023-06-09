@@ -1,2 +1,2 @@
-INFO: [VRFC 10-163] Analyzing VHDL file "F:/New folder/Nano-Processor-2/Nano Processor.srcs/sources_1/new/ROM.vhd" into library xil_defaultlib
-INFO: [VRFC 10-307] analyzing entity ROM
+INFO: [VRFC 10-163] Analyzing VHDL file "F:/New folder/NanoProcessorUpgraded/Nano Processor.srcs/sources_1/new/Processor.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity Processor

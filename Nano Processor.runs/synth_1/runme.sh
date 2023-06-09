@@ -24,7 +24,7 @@ else
 fi
 export LD_LIBRARY_PATH
 
-HD_PWD='F:/New folder/Nano-Processor-2/Nano Processor.runs/synth_1'
+HD_PWD='F:/New folder/NanoProcessorUpgraded/Nano Processor.runs/synth_1'
 cd "$HD_PWD"
 
 HD_LOG=runme.log

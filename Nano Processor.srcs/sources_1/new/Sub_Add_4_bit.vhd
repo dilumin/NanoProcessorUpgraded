@@ -52,6 +52,7 @@ component FA
 end component;
 
 signal In0 ,In1 , In2 , In3 ,temp_c0,temp_c1 , temp_c2,temp_c3   : STD_LOGIC;
+signal L : STD_LOGIC_VECTOR (3 downto 0);
 
 
 begin
@@ -65,28 +66,29 @@ FA_0 : FA
     port map(C_in => M,
             A => A(0),
             B => In0,
-            S => S(0),
+            S => L(0),
             C_out => temp_c0);
 FA_1 : FA 
     port map(C_in => temp_c0,
             A => A(1),
             B => In1,
-            S => S(1),
+            S => L(1),
             C_out => temp_c1);
 FA_2 : FA 
     port map(C_in => temp_c1,
             A => A(2),
             B => In2,
-            S => S(2),
+            S => L(2),
             C_out => temp_c2);
 FA_3 : FA 
     port map(C_in => temp_c2,
             A => A(3),
             B => In3,
-            S => S(3),
+            S => L(3),
             C_out => temp_c3);
             
 V <= temp_c2 XOR temp_c3;
-C <= temp_c2;
+C <=   ( NOT L(0) AND NOT L(1) AND NOT L(2) AND NOT L(3) )   ;
+S <= L;
 
 end Behavioral;

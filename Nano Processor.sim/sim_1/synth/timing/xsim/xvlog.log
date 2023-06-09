@@ -1,0 +1,3 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "F:/New folder/NanoProcessorUpgraded/Nano Processor.sim/sim_1/synth/timing/xsim/TB_Buffer_time_synth.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Buffer_4_bit
+INFO: [VRFC 10-311] analyzing module glbl

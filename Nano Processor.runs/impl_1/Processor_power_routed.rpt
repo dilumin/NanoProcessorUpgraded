@@ -1,7 +1,7 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2018.2 (win64) Build 2258646 Thu Jun 14 20:03:12 MDT 2018
-| Date             : Sat Jun  3 12:24:41 2023
+| Date             : Fri Jun  9 15:43:13 2023
 | Host             : LAPTOP-CQ49DMED running 64-bit major release  (build 9200)
 | Command          : report_power -file Processor_power_routed.rpt -pb Processor_power_summary_routed.pb -rpx Processor_power_routed.rpx
 | Design           : Processor
@@ -30,15 +30,15 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 0.079        |
+| Total On-Chip Power (W)  | 0.073        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 0.008        |
+| Dynamic (W)              | 0.001        |
 | Device Static (W)        | 0.072        |
 | Effective TJA (C/W)      | 5.0          |
 | Max Ambient (C)          | 84.6         |
 | Junction Temperature (C) | 25.4         |
-| Confidence Level         | Medium       |
+| Confidence Level         | Low          |
 | Setting File             | ---          |
 | Simulation Activity File | ---          |
 | Design Nets Matched      | NA           |
@@ -53,15 +53,15 @@ Table of Contents
 | On-Chip        | Power (W) | Used     | Available | Utilization (%) |
 +----------------+-----------+----------+-----------+-----------------+
 | Clocks         |    <0.001 |        3 |       --- |             --- |
-| Slice Logic    |    <0.001 |      106 |       --- |             --- |
-|   LUT as Logic |    <0.001 |       33 |     20800 |            0.16 |
+| Slice Logic    |    <0.001 |      142 |       --- |             --- |
+|   LUT as Logic |    <0.001 |       58 |     20800 |            0.28 |
 |   CARRY4       |    <0.001 |        8 |      8150 |            0.10 |
-|   Register     |    <0.001 |       45 |     41600 |            0.11 |
-|   Others       |     0.000 |        8 |       --- |             --- |
-| Signals        |    <0.001 |       93 |       --- |             --- |
-| I/O            |     0.007 |       11 |       106 |           10.38 |
+|   Register     |    <0.001 |       49 |     41600 |            0.12 |
+|   Others       |     0.000 |       10 |       --- |             --- |
+| Signals        |    <0.001 |      127 |       --- |             --- |
+| I/O            |    <0.001 |       15 |       106 |           14.15 |
 | Static Power   |     0.072 |          |           |                 |
-| Total          |     0.079 |          |           |                 |
+| Total          |     0.073 |          |           |                 |
 +----------------+-----------+----------+-----------+-----------------+
 
 
@@ -73,7 +73,7 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+
 | Vccint    |       1.000 |     0.011 |       0.001 |      0.010 |
 | Vccaux    |       1.800 |     0.013 |       0.000 |      0.013 |
-| Vcco33    |       3.300 |     0.003 |       0.002 |      0.001 |
+| Vcco33    |       3.300 |     0.001 |       0.000 |      0.001 |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |
 | Vcco18    |       1.800 |     0.000 |       0.000 |      0.000 |
 | Vcco15    |       1.500 |     0.000 |       0.000 |      0.000 |
@@ -94,12 +94,12 @@ Table of Contents
 | User Input Data             | Confidence | Details                                               | Action                                                                                                             |
 +-----------------------------+------------+-------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------+
 | Design implementation state | High       | Design is routed                                      |                                                                                                                    |
-| Clock nodes activity        | Medium     | More than 5% of clocks are missing user specification | Provide missing clock activity with a constraint file, simulation results or by editing the "By Clock Domain" view |
+| Clock nodes activity        | Low        | User specified less than 75% of clocks                | Provide missing clock activity with a constraint file, simulation results or by editing the "By Clock Domain" view |
 | I/O nodes activity          | Medium     | More than 5% of inputs are missing user specification | Provide missing input activity with simulation results or by editing the "By Resource Type -> I/Os" view           |
 | Internal nodes activity     | Medium     | User specified less than 25% of internal nodes        | Provide missing internal nodes activity with simulation results or by editing the "By Resource Type" views         |
 | Device models               | High       | Device models are Production                          |                                                                                                                    |
 |                             |            |                                                       |                                                                                                                    |
-| Overall confidence level    | Medium     |                                                       |                                                                                                                    |
+| Overall confidence level    | Low        |                                                       |                                                                                                                    |
 +-----------------------------+------------+-------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------+
 
 
@@ -140,7 +140,7 @@ Table of Contents
 +-------------------+-----------+
 | Name              | Power (W) |
 +-------------------+-----------+
-| Processor         |     0.008 |
+| Processor         |     0.001 |
 |   Programcounter  |    <0.001 |
 |     D_FF_0        |    <0.001 |
 |     D_FF_1        |    <0.001 |
@@ -148,6 +148,7 @@ Table of Contents
 |   Registerbank    |    <0.001 |
 |     reg_1         |    <0.001 |
 |     reg_2         |     0.000 |
+|     reg_3         |    <0.001 |
 |   slow_down_clock |    <0.001 |
 +-------------------+-----------+
 

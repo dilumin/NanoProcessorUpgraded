@@ -1,0 +1,131 @@
+(DELAYFILE 
+(SDFVERSION "3.0" )
+(DESIGN "Buffer_4_bit")
+(DATE "Tue Jun  6 08:50:17 2023")
+(VENDOR "XILINX")
+(PROGRAM "Vivado")
+(VERSION "2018.2")
+(DIVIDER /)
+(TIMESCALE 1ps)
+(CELL 
+  (CELLTYPE "IBUF")
+  (INSTANCE I_IBUF\[0\]_inst)
+  (DELAY 
+    (PATHPULSE (50.0))
+    (ABSOLUTE 
+      (IOPATH I O (789.5:922.6:922.6) (789.5:922.6:922.6))
+    )
+  )
+)
+(CELL 
+  (CELLTYPE "IBUF")
+  (INSTANCE I_IBUF\[1\]_inst)
+  (DELAY 
+    (PATHPULSE (50.0))
+    (ABSOLUTE 
+      (IOPATH I O (789.5:922.6:922.6) (789.5:922.6:922.6))
+    )
+  )
+)
+(CELL 
+  (CELLTYPE "IBUF")
+  (INSTANCE I_IBUF\[2\]_inst)
+  (DELAY 
+    (PATHPULSE (50.0))
+    (ABSOLUTE 
+      (IOPATH I O (789.5:922.6:922.6) (789.5:922.6:922.6))
+    )
+  )
+)
+(CELL 
+  (CELLTYPE "IBUF")
+  (INSTANCE I_IBUF\[3\]_inst)
+  (DELAY 
+    (PATHPULSE (50.0))
+    (ABSOLUTE 
+      (IOPATH I O (789.5:922.6:922.6) (789.5:922.6:922.6))
+    )
+  )
+)
+(CELL 
+  (CELLTYPE "OBUFT")
+  (INSTANCE O_OBUFT\[0\]_inst)
+  (DELAY 
+    (PATHPULSE (50.0))
+    (ABSOLUTE 
+      (IOPATH T O () () (2053.0:2362.0:2362.0) (2053.0:2362.0:2362.0) (2164.4:2599.7:2599.7) (2164.4:2599.7:2599.7))
+      (IOPATH I O (2428.6:2584.4:2584.4) (2428.6:2584.4:2584.4))
+    )
+  )
+)
+(CELL 
+  (CELLTYPE "OBUFT")
+  (INSTANCE O_OBUFT\[1\]_inst)
+  (DELAY 
+    (PATHPULSE (50.0))
+    (ABSOLUTE 
+      (IOPATH T O () () (2053.0:2362.0:2362.0) (2053.0:2362.0:2362.0) (2164.4:2599.7:2599.7) (2164.4:2599.7:2599.7))
+      (IOPATH I O (2428.6:2584.4:2584.4) (2428.6:2584.4:2584.4))
+    )
+  )
+)
+(CELL 
+  (CELLTYPE "OBUFT")
+  (INSTANCE O_OBUFT\[2\]_inst)
+  (DELAY 
+    (PATHPULSE (50.0))
+    (ABSOLUTE 
+      (IOPATH T O () () (2053.0:2362.0:2362.0) (2053.0:2362.0:2362.0) (2164.4:2599.7:2599.7) (2164.4:2599.7:2599.7))
+      (IOPATH I O (2428.6:2584.4:2584.4) (2428.6:2584.4:2584.4))
+    )
+  )
+)
+(CELL 
+  (CELLTYPE "OBUFT")
+  (INSTANCE O_OBUFT\[3\]_inst)
+  (DELAY 
+    (PATHPULSE (50.0))
+    (ABSOLUTE 
+      (IOPATH T O () () (2053.0:2362.0:2362.0) (2053.0:2362.0:2362.0) (2164.4:2599.7:2599.7) (2164.4:2599.7:2599.7))
+      (IOPATH I O (2428.6:2584.4:2584.4) (2428.6:2584.4:2584.4))
+    )
+  )
+)
+(CELL 
+  (CELLTYPE "LUT1")
+  (INSTANCE O_OBUFT\[3\]_inst_i_1)
+  (DELAY 
+    (PATHPULSE (50.0))
+    (ABSOLUTE 
+      (IOPATH I0 O (100.0:124.0:124.0) (100.0:124.0:124.0))
+    )
+  )
+)
+(CELL 
+  (CELLTYPE "IBUF")
+  (INSTANCE en_IBUF_inst)
+  (DELAY 
+    (PATHPULSE (50.0))
+    (ABSOLUTE 
+      (IOPATH I O (789.5:922.6:922.6) (789.5:922.6:922.6))
+    )
+  )
+)
+(CELL 
+    (CELLTYPE "Buffer_4_bit")
+    (INSTANCE )
+    (DELAY
+      (ABSOLUTE
+      (INTERCONNECT I_IBUF\[0\]_inst/O O_OBUFT\[0\]_inst/I (760.7:800.7:800.7) (760.7:800.7:800.7))
+      (INTERCONNECT I_IBUF\[1\]_inst/O O_OBUFT\[1\]_inst/I (760.7:800.7:800.7) (760.7:800.7:800.7))
+      (INTERCONNECT I_IBUF\[2\]_inst/O O_OBUFT\[2\]_inst/I (760.7:800.7:800.7) (760.7:800.7:800.7))
+      (INTERCONNECT I_IBUF\[3\]_inst/O O_OBUFT\[3\]_inst/I (760.7:800.7:800.7) (760.7:800.7:800.7))
+      (INTERCONNECT O_OBUFT\[3\]_inst_i_1/O O_OBUFT\[0\]_inst/T (760.7:800.7:800.7) (760.7:800.7:800.7))
+      (INTERCONNECT O_OBUFT\[3\]_inst_i_1/O O_OBUFT\[1\]_inst/T (760.7:800.7:800.7) (760.7:800.7:800.7))
+      (INTERCONNECT O_OBUFT\[3\]_inst_i_1/O O_OBUFT\[2\]_inst/T (760.7:800.7:800.7) (760.7:800.7:800.7))
+      (INTERCONNECT O_OBUFT\[3\]_inst_i_1/O O_OBUFT\[3\]_inst/T (760.7:800.7:800.7) (760.7:800.7:800.7))
+      (INTERCONNECT en_IBUF_inst/O O_OBUFT\[3\]_inst_i_1/I0 (759.7:799.7:799.7) (759.7:799.7:799.7))
+      )
+    )
+)
+)
