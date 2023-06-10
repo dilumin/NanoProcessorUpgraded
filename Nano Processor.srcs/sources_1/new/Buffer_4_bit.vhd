@@ -43,16 +43,6 @@ signal a : std_logic_vector (3 downto 0);
 begin
 
 O <= I when en = '1' else "ZZZZ";
---a <= "1111";
---O <= a;
 
---    process (en, I)
---    begin
---        if (en = '1') then
---            O <= I;
---        else
---            O <= "ZZZZ"; -- Ensure a defined output when enable is '0'
---        end if;
---    end process;
 
 end Behavioral;

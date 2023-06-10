@@ -10,26 +10,22 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="23450000fs"></ZoomStartTime>
-      <ZoomEndTime time="168050001fs"></ZoomEndTime>
-      <Cursor1Time time="133800000fs"></Cursor1Time>
+      <ZoomStartTime time="0fs"></ZoomStartTime>
+      <ZoomEndTime time="129400001fs"></ZoomEndTime>
+      <Cursor1Time time="67200000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="59"></NameColumnWidth>
       <ValueColumnWidth column_width="58"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="5" />
+   <WVObjectSize size="7" />
    <wvobject fp_name="/TB_processor/Clk" type="logic">
       <obj_property name="ElementShortName">Clk</obj_property>
       <obj_property name="ObjectShortName">Clk</obj_property>
    </wvobject>
-   <wvobject fp_name="/TB_processor/UUT/Programcounter/Q" type="array">
-      <obj_property name="ElementShortName">Q[2:0]</obj_property>
-      <obj_property name="ObjectShortName">Q[2:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/TB_processor/UUT/Registerbank/reg_1/Q" type="array">
-      <obj_property name="ElementShortName">Q[3:0]</obj_property>
-      <obj_property name="ObjectShortName">Q[3:0]</obj_property>
+   <wvobject fp_name="/TB_processor/Reset" type="logic">
+      <obj_property name="ElementShortName">Reset</obj_property>
+      <obj_property name="ObjectShortName">Reset</obj_property>
    </wvobject>
    <wvobject fp_name="/TB_processor/Zero" type="logic">
       <obj_property name="ElementShortName">Zero</obj_property>
@@ -38,5 +34,17 @@
    <wvobject fp_name="/TB_processor/overflow" type="logic">
       <obj_property name="ElementShortName">overflow</obj_property>
       <obj_property name="ObjectShortName">overflow</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_processor/segment_out" type="array">
+      <obj_property name="ElementShortName">segment_out[6:0]</obj_property>
+      <obj_property name="ObjectShortName">segment_out[6:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_processor/reg_out" type="array">
+      <obj_property name="ElementShortName">reg_out[3:0]</obj_property>
+      <obj_property name="ObjectShortName">reg_out[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_processor/UUT/Instruction_Deco/L_sel" type="array">
+      <obj_property name="ElementShortName">L_sel[2:0]</obj_property>
+      <obj_property name="ObjectShortName">L_sel[2:0]</obj_property>
    </wvobject>
 </wave_config>

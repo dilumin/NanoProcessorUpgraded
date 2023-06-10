@@ -43,7 +43,7 @@ begin
         if (rising_edge(Clk_in)) then
             count <= count + 1;
             --if (count = 50000000) then
-            if (count = 25000000) then
+            if (count = 1) then
                 clk_status <= not clk_status;
                 Clk_out <= clk_status;
                 count <= 1;

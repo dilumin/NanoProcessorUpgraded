@@ -39,6 +39,8 @@ architecture Behavioral of TB_processor is
 
 component Processor
     Port(
+    reg_out : out STD_LOGIC_VECTOR (3 downto 0);
+
     Clk : in STD_LOGIC;
     Reset : in STD_LOGIC;
     Zero : out STD_LOGIC;
@@ -65,7 +67,7 @@ end component;
 
 signal Clk , Reset , Zero , overflow : STD_LOGIC;
 signal segment_out :  STD_LOGIC_VECTOR (6 downto 0);
---signal test_mem_in : STD_LOGIC_VECTOR (3 downto 0);
+signal reg_out : STD_LOGIC_VECTOR (3 downto 0);
 --signal adder_in  : STD_LOGIC_VECTOR (2 downto 0);
 --signal test_val_1 , test_val_2 : STD_LOGIC_VECTOR (3 downto 0);
 --signal test_sum , test_r2:  STD_LOGIC_VECTOR (3 downto 0);
@@ -78,7 +80,8 @@ port map (
     Reset => Reset,
     Zero => Zero,
     overflow => overflow,
-    segment_out => segment_out
+    segment_out => segment_out,
+    reg_out=> reg_out
 --    test_mem_in => test_mem_in,
 --    adder_in =>  adder_in,
 --    test_val_1 => test_val_1,

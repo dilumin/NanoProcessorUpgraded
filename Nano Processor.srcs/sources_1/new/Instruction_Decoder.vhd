@@ -35,7 +35,7 @@ entity Instruction_Decoder is
     Port ( Instr : in STD_LOGIC_VECTOR (12 downto 0);
            Reg_en : out STD_LOGIC_VECTOR (2 downto 0);
            Reg_check_j : in STD_LOGIC_VECTOR (3 downto 0);
-           L_sel : out STD_LOGIC_VECTOR (1 downto 0);
+           L_sel : out STD_LOGIC_VECTOR (2 downto 0);
            Val : out STD_LOGIC_VECTOR (3 downto 0);
            Reg_sel_0 : out STD_LOGIC_VECTOR (2 downto 0);
            Reg_sel_1 : out STD_LOGIC_VECTOR (2 downto 0);
@@ -48,11 +48,7 @@ end Instruction_Decoder;
 
 architecture Behavioral of Instruction_Decoder is
 
---component Decoder_2_to_4
---    Port ( I : in STD_LOGIC_VECTOR (1 downto 0);
---       EN : in STD_LOGIC;
---       Y : out STD_LOGIC_VECTOR (3 downto 0));
---end component;
+
 component Decoder_3_to_8
     Port ( I : in STD_LOGIC_VECTOR (2 downto 0);
            EN : in STD_LOGIC;
@@ -84,11 +80,13 @@ Decoder_0 : Decoder_3_to_8
     );
 Reg_en <= Instr (9 downto 7);
 --L_sel <=
-kk(0)  <= NOT (Y1(2));
-kk(1) <= '0';
+--kk(0)  <= NOT (Y1(2));
+--kk(1) <= '0';
 
-L_sel<= kk when NOT (Instr (12) = '1') else  "11";
 
+
+--L_sel<= kk when NOT (Instr (12) = '1') else  "11";
+L_sel <= Instr (12 downto 10);
 
 
 --L_sel <=  (Y1(2) OR Y1(3)) AND ( NOT Instr(11)) ;

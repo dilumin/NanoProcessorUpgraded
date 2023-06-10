@@ -17,42 +17,41 @@ proc create_report { reportName command } {
     send_msg_id runtcl-5 warning "$msg"
   }
 }
-set_msg_config -id {Common 17-41} -limit 10000000
 create_project -in_memory -part xc7a35tcpg236-1
 
 set_param project.singleFileAddWarning.threshold 0
 set_param project.compositeFile.enableAutoGeneration 0
 set_param synth.vivado.isSynthRun true
-set_property webtalk.parent_dir {F:/New folder/NanoProcessorUpgraded/Nano Processor.cache/wt} [current_project]
-set_property parent.project_path {F:/New folder/NanoProcessorUpgraded/Nano Processor.xpr} [current_project]
+set_property webtalk.parent_dir {E:/NanoProcessorUpgraded/Nano Processor.cache/wt} [current_project]
+set_property parent.project_path {E:/NanoProcessorUpgraded/Nano Processor.xpr} [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
 set_property board_part digilentinc.com:basys3:part0:1.2 [current_project]
-set_property ip_output_repo {f:/New folder/NanoProcessorUpgraded/Nano Processor.cache/ip} [current_project]
+set_property ip_output_repo {e:/NanoProcessorUpgraded/Nano Processor.cache/ip} [current_project]
 set_property ip_cache_permissions {read write} [current_project]
 read_vhdl -library xil_defaultlib {
-  {F:/New folder/NanoProcessorUpgraded/Nano Processor.srcs/sources_1/new/Adder_bit_3.vhd}
-  {F:/New folder/NanoProcessorUpgraded/Nano Processor.srcs/sources_1/new/Buffer_4_bit.vhd}
-  {F:/New folder/NanoProcessorUpgraded/Nano Processor.srcs/sources_1/new/D_FF.vhd}
-  {F:/New folder/NanoProcessorUpgraded/Nano Processor.srcs/sources_1/new/Decoder_2_to_4.vhd}
-  {F:/New folder/NanoProcessorUpgraded/Nano Processor.srcs/sources_1/new/Decoder_3_to_8.vhd}
-  {F:/New folder/NanoProcessorUpgraded/Nano Processor.srcs/sources_1/new/FA.vhd}
-  {F:/New folder/NanoProcessorUpgraded/Nano Processor.srcs/sources_1/new/HA.vhd}
-  {F:/New folder/NanoProcessorUpgraded/Nano Processor.srcs/sources_1/new/Instruction_Decoder.vhd}
-  {F:/New folder/NanoProcessorUpgraded/Nano Processor.srcs/sources_1/new/LUT_16_7.vhd}
-  {F:/New folder/NanoProcessorUpgraded/Nano Processor.srcs/sources_1/new/Multiplicater.vhd}
-  {F:/New folder/NanoProcessorUpgraded/Nano Processor.srcs/sources_1/new/Mux_2_to_1.vhd}
-  {F:/New folder/NanoProcessorUpgraded/Nano Processor.srcs/sources_1/new/Mux_2_to_1_bit_3.vhd}
-  {F:/New folder/NanoProcessorUpgraded/Nano Processor.srcs/sources_1/new/Mux_4_to_1_4_bit.vhd}
-  {F:/New folder/NanoProcessorUpgraded/Nano Processor.srcs/sources_1/new/Mux_8_to_1.vhd}
-  {F:/New folder/NanoProcessorUpgraded/Nano Processor.srcs/sources_1/new/Mux_8_way_4_bit.vhd}
-  {F:/New folder/NanoProcessorUpgraded/Nano Processor.srcs/sources_1/new/Program_counter.vhd}
-  {F:/New folder/NanoProcessorUpgraded/Nano Processor.srcs/sources_1/new/ROM.vhd}
-  {F:/New folder/NanoProcessorUpgraded/Nano Processor.srcs/sources_1/new/Reg.vhd}
-  {F:/New folder/NanoProcessorUpgraded/Nano Processor.srcs/sources_1/new/Slow_Clk.vhd}
-  {F:/New folder/NanoProcessorUpgraded/Nano Processor.srcs/sources_1/new/Sub_Add_4_bit.vhd}
-  {F:/New folder/NanoProcessorUpgraded/Nano Processor.srcs/sources_1/new/reg_bank.vhd}
-  {F:/New folder/NanoProcessorUpgraded/Nano Processor.srcs/sources_1/new/Processor.vhd}
+  {E:/NanoProcessorUpgraded/Nano Processor.srcs/sources_1/new/Adder_bit_3.vhd}
+  {E:/NanoProcessorUpgraded/Nano Processor.srcs/sources_1/new/D_FF.vhd}
+  {E:/NanoProcessorUpgraded/Nano Processor.srcs/sources_1/new/Decoder_2_to_4.vhd}
+  {E:/NanoProcessorUpgraded/Nano Processor.srcs/sources_1/new/Decoder_3_to_8.vhd}
+  {E:/NanoProcessorUpgraded/Nano Processor.srcs/sources_1/new/FA.vhd}
+  {E:/NanoProcessorUpgraded/Nano Processor.srcs/sources_1/new/HA.vhd}
+  {E:/NanoProcessorUpgraded/Nano Processor.srcs/sources_1/new/Instruction_Decoder.vhd}
+  {E:/NanoProcessorUpgraded/Nano Processor.srcs/sources_1/new/LUT_16_7.vhd}
+  {E:/NanoProcessorUpgraded/Nano Processor.srcs/sources_1/new/Left_Bit_shift.vhd}
+  {E:/NanoProcessorUpgraded/Nano Processor.srcs/sources_1/new/Multiplicater.vhd}
+  {E:/NanoProcessorUpgraded/Nano Processor.srcs/sources_1/new/Mux_2_to_1.vhd}
+  {E:/NanoProcessorUpgraded/Nano Processor.srcs/sources_1/new/Mux_2_to_1_bit_3.vhd}
+  {E:/NanoProcessorUpgraded/Nano Processor.srcs/sources_1/new/Mux_8_to_1.vhd}
+  {E:/NanoProcessorUpgraded/Nano Processor.srcs/sources_1/new/Mux_8_way_4_bit.vhd}
+  {E:/NanoProcessorUpgraded/Nano Processor.srcs/sources_1/new/Program_counter.vhd}
+  {E:/NanoProcessorUpgraded/Nano Processor.srcs/sources_1/new/ROM.vhd}
+  {E:/NanoProcessorUpgraded/Nano Processor.srcs/sources_1/new/Reg.vhd}
+  {E:/NanoProcessorUpgraded/Nano Processor.srcs/sources_1/new/Right_Bit_shift.vhd}
+  {E:/NanoProcessorUpgraded/Nano Processor.srcs/sources_1/new/Slow_Clk.vhd}
+  {E:/NanoProcessorUpgraded/Nano Processor.srcs/sources_1/new/Sub_Add_4_bit.vhd}
+  {E:/NanoProcessorUpgraded/Nano Processor.srcs/sources_1/new/reg_bank.vhd}
+  {E:/NanoProcessorUpgraded/Nano Processor.srcs/sources_1/new/Processor.vhd}
 }
 # Mark all dcp files as not used in implementation to prevent them from being
 # stitched into the results of this synthesis run. Any black boxes in the
@@ -62,8 +61,8 @@ read_vhdl -library xil_defaultlib {
 foreach dcp [get_files -quiet -all -filter file_type=="Design\ Checkpoint"] {
   set_property used_in_implementation false $dcp
 }
-read_xdc {{F:/New folder/NanoProcessorUpgraded/Basys3Labs.xdc}}
-set_property used_in_implementation false [get_files {{F:/New folder/NanoProcessorUpgraded/Basys3Labs.xdc}}]
+read_xdc E:/NanoProcessorUpgraded/Basys3Labs.xdc
+set_property used_in_implementation false [get_files E:/NanoProcessorUpgraded/Basys3Labs.xdc]
 
 set_param ips.enableIPCacheLiteLoad 0
 close [open __synthesis_is_running__ w]
