@@ -68,7 +68,7 @@ component Instruction_Decoder
           Reg_sel_1 : out STD_LOGIC_VECTOR (2 downto 0);
           Add_Sub_sel : out STD_LOGIC;
           J_flag : out STD_LOGIC;
-          Address_j : out STD_LOGIC_VECTOR (2 downto 0));
+          Address_j : out STD_LOGIC_VECTOR (3 downto 0));
 end component;
 
 component Multiplier_4_by_4
@@ -96,7 +96,7 @@ end component;
 
 
 component ROM
-    Port ( Mem_S : in STD_LOGIC_VECTOR (2 downto 0);
+    Port ( Mem_S : in STD_LOGIC_VECTOR (3 downto 0);
            I : out STD_LOGIC_VECTOR (12 downto 0));
 end component;
 
@@ -105,9 +105,9 @@ component Slow_Clk
           Clk_out : out STD_LOGIC);
 end component;
 
-component Adder_bit_3
-     Port(A : in STD_LOGIC_VECTOR (2 downto 0);
-          S : out STD_LOGIC_VECTOR (2 downto 0));
+component Adder_bit_4
+     Port(A : in STD_LOGIC_VECTOR (3 downto 0);
+          S : out STD_LOGIC_VECTOR (3 downto 0));
 end component;
 
 component reg_bank
@@ -150,8 +150,8 @@ component Mux_2_to_1_bit_3
  
  
  component Program_counter
-     Port ( I : in STD_LOGIC_VECTOR (2 downto 0);
-           Q : out STD_LOGIC_VECTOR (2 downto 0);
+     Port ( I : in STD_LOGIC_VECTOR (3 downto 0);
+           Q : out STD_LOGIC_VECTOR (3 downto 0);
            res : in STD_LOGIC;
            Clk : in STD_LOGIC);
  end component;
@@ -175,12 +175,13 @@ component Mux_2_to_1_bit_3
   end component;
 
 signal Instruction_Bus : STD_LOGIC_VECTOR(12 downto 0);
-signal Mux_3_out, pc_out, regi_en_bus,Adder_out,Address_to_jump,reg_sel_0,reg_sel_1 : STD_LOGIC_VECTOR (2 downto 0);
-signal M0,M1,M2,M3,M4,M5,M6,M7 ,left_shift_output , right_shift_output , and_bitshift_out : STD_LOGIC_VECTOR (3 downto 0);
+signal  regi_en_bus,reg_sel_0,reg_sel_1 : STD_LOGIC_VECTOR (2 downto 0);
+signal M0,M1,M2,M3,M4,M5,M6,M7 ,left_shift_output ,Adder_out, right_shift_output ,Address_to_jump, pc_out, and_bitshift_out : STD_LOGIC_VECTOR (3 downto 0);
 signal Mux_out_1,Mux_out_2,Sub_Add_out,reg_in,immediate_Value ,Reg_1_data , Mul_out: STD_LOGIC_VECTOR (3 downto 0);
 signal Add_Sub_Select,Jump_flag ,slowed_clk : STD_LOGIC;
 signal Load_sel : STD_LOGIC_VECTOR (2 downto 0);
 signal zero_temp , o_temp : std_logic;
+signal Mux_4_out : STD_LOGIC_VECTOR (3 downto 0); 
 
 begin
 
@@ -196,7 +197,7 @@ port map (
 
 Programcounter : Program_counter
     PORT MAP(
-        I => Mux_3_out,
+        I => Mux_4_out,
         Q => pc_out,
         res => Reset,
         Clk => slowed_clk
@@ -286,7 +287,7 @@ Sub_Adder : Sub_Add_4_bit
             S => Sub_Add_out);
 --   test_sum <= Sub_Add_out;
 
-Adder_3_bit : Adder_bit_3
+Adder_4_bit : Adder_bit_4
     
     PORT MAP(
             A => pc_out,
@@ -318,11 +319,11 @@ PORT MAP (
     );
 
 
-Mux_2_to_1_bit_3_0 : Mux_2_to_1_bit_3
+Mux_2_to_1_bit_4_0 : Mux_2_to_1_bit_4
     PORT MAP(D0 => Adder_out,
              D1 => Address_to_jump,
              S => Jump_flag,
-             O_Mux => Mux_3_out);
+             O_Mux => Mux_4_out);
 
 Program_Rom : ROM
     PORT MAP(Mem_S => pc_out,

@@ -1,0 +1,38 @@
+#-----------------------------------------------------------
+# Vivado v2018.2 (64-bit)
+# SW Build 2258646 on Thu Jun 14 20:03:12 MDT 2018
+# IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
+# Start of session at: Sat Jun 10 19:08:26 2023
+# Process ID: 35432
+# Current directory: C:/Users/dilum/Desktop/NanoProcessorUpgraded
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent28364 C:\Users\dilum\Desktop\NanoProcessorUpgraded\Nano Processor.xpr
+# Log file: C:/Users/dilum/Desktop/NanoProcessorUpgraded/vivado.log
+# Journal file: C:/Users/dilum/Desktop/NanoProcessorUpgraded\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project {C:/Users/dilum/Desktop/NanoProcessorUpgraded/Nano Processor.xpr}
+update_compile_order -fileset sources_1
+launch_simulation
+open_wave_config C:/Users/dilum/Desktop/NanoProcessorUpgraded/TB_processor_behav.wcfg
+source TB_processor.tcl
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+close_sim
+launch_simulation
+open_wave_config C:/Users/dilum/Desktop/NanoProcessorUpgraded/TB_processor_behav.wcfg
+source TB_processor.tcl
+close_sim
+launch_simulation
+open_wave_config C:/Users/dilum/Desktop/NanoProcessorUpgraded/TB_processor_behav.wcfg
+source TB_processor.tcl
+current_wave_config {TB_processor_behav.wcfg}
+add_wave {{/TB_processor/UUT/Programcounter/Q}} 
+save_wave_config {C:/Users/dilum/Desktop/NanoProcessorUpgraded/TB_processor_behav.wcfg}
+close_sim
+launch_simulation
+open_wave_config C:/Users/dilum/Desktop/NanoProcessorUpgraded/TB_processor_behav.wcfg
+source TB_processor.tcl
+reset_run synth_1
+close_sim

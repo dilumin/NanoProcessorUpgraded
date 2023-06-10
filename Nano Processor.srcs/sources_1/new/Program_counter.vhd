@@ -32,8 +32,8 @@ use IEEE.STD_LOGIC_1164.ALL;
 --use UNISIM.VComponents.all;
 
 entity Program_counter is
-    Port ( I : in STD_LOGIC_VECTOR (2 downto 0);
-           Q : out STD_LOGIC_VECTOR (2 downto 0);
+    Port ( I : in STD_LOGIC_VECTOR (3 downto 0);
+           Q : out STD_LOGIC_VECTOR (3 downto 0);
            res : in STD_LOGIC;
            Clk : in STD_LOGIC);
 end Program_counter;
@@ -77,6 +77,13 @@ D_FF_2 : D_FF
            Res => res,
            Clk => Clk,
            Q => Q(2)
-       );   
+       );
+D_FF_3 : D_FF
+           port map (
+               D => I(3),
+               Res => res,
+               Clk => Clk,
+               Q => Q(3)
+           );   
 
 end Behavioral;

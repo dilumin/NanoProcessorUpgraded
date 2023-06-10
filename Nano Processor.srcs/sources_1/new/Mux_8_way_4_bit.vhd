@@ -45,66 +45,70 @@ entity  Mux_8_to_1_bit_4 is
 end  Mux_8_to_1_bit_4;
 
 architecture Behavioral of  Mux_8_to_1_bit_4 is
-    component Mux_8_to_1
-        Port(S: in STD_LOGIC_VECTOR (2 downto 0);
-             D : in STD_LOGIC_VECTOR (7 downto 0);
-             EN : in STD_LOGIC ;
-             Y : out STD_LOGIC );
-    end component;
-signal EN : STD_LOGIC := '1';
+
+component Buffer_4_bit
+port (I : in STD_LOGIC_VECTOR (3 downto 0);
+           O : out STD_LOGIC_VECTOR (3 downto 0);
+           en : in STD_LOGIC
+);
+end component;
+
+component Decoder_3_to_8 is
+    Port ( I : in STD_LOGIC_VECTOR (2 downto 0);
+       EN : in STD_LOGIC;
+       Y : out STD_LOGIC_VECTOR (7 downto 0));
+end component;
+
+signal select_buff :STD_LOGIC_VECTOR (7 downto 0);
+
 begin
-    Mux_8_to_1_0 : Mux_8_to_1
-        PORT MAP(
-            S => RS,
-            D(0) => R0(0),
-            D(1) => R1(0),
-            D(2) => R2(0),
-            D(3) => R3(0),
-            D(4) => R4(0),
-            D(5) => R5(0),
-            D(6) => R6(0),
-            D(7) => R7(0),
-            EN => EN,
-            Y => O(0));
-     Mux_8_to_1_1 : Mux_8_to_1
-          PORT MAP(
-               S => RS,
-               D(0) => R0(1),
-               D(1) => R1(1),
-               D(2) => R2(1),
-               D(3) => R3(1),
-               D(4) => R4(1),
-               D(5) => R5(1),
-               D(6) => R6(1),
-               D(7) => R7(1),
-               EN => EN,
-               Y => O(1));
-     Mux_8_to_1_2 : Mux_8_to_1
-            PORT MAP(
-              S => RS,
-              D(0) => R0(2),
-              D(1) => R1(2),
-              D(2) => R2(2),
-              D(3) => R3(2),
-              D(4) => R4(2),
-              D(5) => R5(2),
-              D(6) => R6(2),
-              D(7) => R7(2),
-              EN => EN,
-              Y => O(2)); 
-    Mux_8_to_1_3 : Mux_8_to_1
-         PORT MAP(
-             S => RS,
-             D(0) => R0(3),
-             D(1) => R1(3),
-             D(2) => R2(3),
-             D(3) => R3(3),
-             D(4) => R4(3),
-             D(5) => R5(3),
-             D(6) => R6(3),
-             D(7) => R7(3),
-             EN => EN,
-             Y => O(3));          
-       
-       
+
+ Decoder :Decoder_3_to_8
+port map ( I => RS,
+           EN => '1',
+           Y => select_buff);
+           
+buffer_0 : Buffer_4_bit
+port map (
+    I => R0,
+    en => select_buff(0),
+    O => O);
+ 
+buffer_1 : Buffer_4_bit
+    port map (
+        I => R1,
+        en => select_buff(1),
+        O => O); 
+buffer_2 : Buffer_4_bit
+        port map (
+            I => R2,
+            en => select_buff(2),
+            O => O);       
+buffer_3 : Buffer_4_bit
+            port map (
+                I => R3,
+                en => select_buff(3),
+                O => O);
+                
+buffer_4 : Buffer_4_bit
+                port map (
+                    I => R4,
+                    en => select_buff(4),
+                    O => O);
+buffer_5 : Buffer_4_bit
+                    port map (
+                        I => R5,
+                        en => select_buff(5),
+                        O => O);          
+buffer_6 : Buffer_4_bit
+                     port map (
+                        I => R6,
+                        en => select_buff(6),
+                         O => O);                          
+buffer_7 : Buffer_4_bit
+                     port map (
+                        I => R7,
+                        en => select_buff(7),
+                        O => O);                          
+                                                        
 end Behavioral;

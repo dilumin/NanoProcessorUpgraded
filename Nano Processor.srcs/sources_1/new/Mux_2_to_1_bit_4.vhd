@@ -39,33 +39,60 @@ entity Mux_2_to_1_bit_4 is
 end Mux_2_to_1_bit_4;
 
 architecture Behavioral of Mux_2_to_1_bit_4 is
-component Mux_2_to_1
-    Port( D0 : in STD_LOGIC;
-          D1 : in STD_LOGIC;
-          S : in STD_LOGIC;
-          O : out STD_LOGIC);
-end component;
-begin
-Mux_2_to_1_0 : Mux_2_to_1
-    PORT MAP(D0 => D0(0),
-             D1 => D1(0),
-             S => S,
-             O => O_Mux(0));
+--component Mux_2_to_1
+--    Port( D0 : in STD_LOGIC;
+--          D1 : in STD_LOGIC;
+--          S : in STD_LOGIC;
+--          O : out STD_LOGIC);
+--end component;
 
-Mux_2_to_1_1 : Mux_2_to_1
-    PORT MAP(D0 => D0(1),
-             D1 => D1(1),
-             S => S,
-             O => O_Mux(1));
+signal temp : STD_LOGIC;
+
+component Buffer_4_bit
+port (I : in STD_LOGIC_VECTOR (3 downto 0);
+           O : out STD_LOGIC_VECTOR (3 downto 0);
+           en : in STD_LOGIC
+);
+end component;
+
+
+begin
+
+temp <= not S;
+
+Buffer_0 : Buffer_4_bit
+port map (
+    I => D0,
+    O => O_Mux,
+    en =>  temp);
+Buffer_1 : Buffer_4_bit
+    port map (
+        I => D1,
+        O => O_Mux,
+        en =>  S);
+
+
+
+--Mux_2_to_1_0 : Mux_2_to_1
+--    PORT MAP(D0 => D0(0),
+--             D1 => D1(0),
+--             S => S,
+--             O => O_Mux(0));
+
+--Mux_2_to_1_1 : Mux_2_to_1
+--    PORT MAP(D0 => D0(1),
+--             D1 => D1(1),
+--             S => S,
+--             O => O_Mux(1));
              
-Mux_2_to_1_2 : Mux_2_to_1
-    PORT MAP(D0 => D0(2),
-            D1 => D1(2),
-            S => S,
-            O => O_Mux(2));
-Mux_2_to_1_3 : Mux_2_to_1
-    PORT MAP(D0 => D0(3),
-            D1 => D1(3),
-            S => S,
-            O => O_Mux(3));
+--Mux_2_to_1_2 : Mux_2_to_1
+--    PORT MAP(D0 => D0(2),
+--            D1 => D1(2),
+--            S => S,
+--            O => O_Mux(2));
+--Mux_2_to_1_3 : Mux_2_to_1
+--    PORT MAP(D0 => D0(3),
+--            D1 => D1(3),
+--            S => S,
+--            O => O_Mux(3));
 end Behavioral;

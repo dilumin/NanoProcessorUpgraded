@@ -41,7 +41,7 @@ entity Instruction_Decoder is
            Reg_sel_1 : out STD_LOGIC_VECTOR (2 downto 0);
            Add_Sub_sel : out STD_LOGIC;
            J_flag : out STD_LOGIC;
-           Address_j : out STD_LOGIC_VECTOR (2 downto 0)
+           Address_j : out STD_LOGIC_VECTOR (3 downto 0)
            );
 end Instruction_Decoder;
 
@@ -102,7 +102,7 @@ Add_Sub_sel <= ( Y1(0) OR Y1(1) ) AND Instr(10) ;
 
 
 J_flag <= Y1 (3) AND ( NOT  Reg_check_j(0)) AND ( NOT  Reg_check_j(1)) AND ( NOT  Reg_check_j(2)) AND ( NOT  Reg_check_j(3));
-Address_j <= Instr (2 downto 0);
+Address_j <= Instr (3 downto 0);
 
 
 
