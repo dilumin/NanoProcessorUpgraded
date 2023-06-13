@@ -47,15 +47,6 @@ end Processor;
 
 architecture Behavioral of Processor is
 
---component Mux_4_to_1_4_bit
---    Port ( A0 : in STD_LOGIC_VECTOR (3 downto 0);
---       A1 : in STD_LOGIC_VECTOR (3 downto 0);
---       A2 : in STD_LOGIC_VECTOR (3 downto 0);
---       A3 : in STD_LOGIC_VECTOR (3 downto 0);
---       O : out STD_LOGIC_VECTOR (3 downto 0);
---       con : in STD_LOGIC_VECTOR (1 downto 0));
-
---end component;
 
 
 component Instruction_Decoder
@@ -192,7 +183,6 @@ slow_down_clock : Slow_Clk
 port map (
     Clk_in => Clk,
     Clk_out => slowed_clk );
---    slowed_clk <= Clk;
 
 
 Programcounter : Program_counter
@@ -236,7 +226,6 @@ Mux_8_to_1_bit_4_0 : Mux_8_to_1_bit_4
          R7 => M7,
          RS => reg_sel_0,
          O => Mux_out_1);
---test_val_1 <= Mux_out_1;
              
 Mux_8_to_1_bit_4_1 : Mux_8_to_1_bit_4
      PORT MAP(
@@ -250,7 +239,6 @@ Mux_8_to_1_bit_4_1 : Mux_8_to_1_bit_4
              R7 => M7,
              RS => reg_sel_1,
              O => Mux_out_2);
---test_val_2 <= Mux_out_2;
 
 Multiplier : Multiplier_4_by_4
 port map (
@@ -293,15 +281,7 @@ Adder_4_bit : Adder_bit_4
             A => pc_out,
             S => Adder_out
              );            
---adder_in <= pc_out;
---Mux_4_to_1_4_bit_0 : Mux_4_to_1_4_bit
---port map (
---    A0 => immediate_Value,
---    A1 => Sub_Add_out,
---    A2 => "0000",
---    A3 => Mul_out,
---    O => reg_in,
---    con => Load_sel);
+
     
 Mux_8_to_1_bit_4_L_SEL : Mux_8_to_1_bit_4
 PORT MAP (
@@ -329,12 +309,7 @@ Program_Rom : ROM
     PORT MAP(Mem_S => pc_out,
              I => Instruction_Bus);
 
---Mux_2_to_1_bit_4_0 : Mux_2_to_1_bit_4
---    PORT MAP(D0 => immediate_Value,
---             D1 => Sub_Add_out,
---             S => Load_sel,
---             O_Mux => reg_in);
-             
+
 Instruction_Deco : Instruction_Decoder
     PORT MAP(Instr => Instruction_Bus,
              Reg_en => regi_en_bus,
@@ -347,7 +322,6 @@ Instruction_Deco : Instruction_Decoder
              J_flag => Jump_flag,
              Address_j => Address_to_jump);
              
---  test_ls <=Load_sel;
 Zero <= zero_temp when Instruction_Bus(12 downto 10) = "000" else '0';
 overflow <= o_temp when Instruction_Bus(12 downto 10) = "000" else '0';
 

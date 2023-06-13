@@ -38,22 +38,22 @@ end TB_ID;
 architecture Behavioral of TB_ID is
 
 component Instruction_Decoder
-    Port ( Instr : in STD_LOGIC_VECTOR (11 downto 0);
+    Port ( Instr : in STD_LOGIC_VECTOR (12 downto 0);
        Reg_en : out STD_LOGIC_VECTOR (2 downto 0);
        Reg_check_j : in STD_LOGIC_VECTOR (3 downto 0);
-       L_sel : out STD_LOGIC;
+       L_sel : out STD_LOGIC_VECTOR (2 downto 0);
        Val : out STD_LOGIC_VECTOR (3 downto 0);
        Reg_sel_0 : out STD_LOGIC_VECTOR (2 downto 0);
        Reg_sel_1 : out STD_LOGIC_VECTOR (2 downto 0);
        Add_Sub_sel : out STD_LOGIC;
        J_flag : out STD_LOGIC;
-       Address_j : out STD_LOGIC_VECTOR (2 downto 0)
+       Address_j : out STD_LOGIC_VECTOR (3 downto 0)
        );
 end component;
-signal Instr : STD_LOGIC_VECTOR (11 downto 0);
-signal Reg_en ,Reg_sel_0 , Reg_sel_1 , Address_j : STD_LOGIC_VECTOR (2 downto 0);
-signal Reg_check_j , Val  : STD_LOGIC_VECTOR (3 downto 0);
-signal J_flag , Add_Sub_sel , L_sel : STD_LOGIC;
+signal Instr : STD_LOGIC_VECTOR (12 downto 0);
+signal Reg_en ,Reg_sel_0 , Reg_sel_1 ,L_sel   : STD_LOGIC_VECTOR (2 downto 0);
+signal Reg_check_j , Val  ,Address_j : STD_LOGIC_VECTOR (3 downto 0);
+signal J_flag , Add_Sub_sel  : STD_LOGIC;
 
 begin
 UUT : Instruction_Decoder 
@@ -72,22 +72,19 @@ port map (
 
 process
 begin
- Instr <= "100010000010";
+ Reg_check_j <= "1001";
+ 
+
+ Instr <= "1000100000100";
  wait for 100ns;
  
- Instr <= "100100000011";
+ Instr <= "1001000000110";
  wait for 100ns;
  
- Instr <= "000010100000";
+ Instr <= "0000101000000";
  wait ;
  
---Instr <= "000010100000";
---wait for 100ns;
---Reg_check_j <= "0000";
---Instr <= "110010000111";
---wait for 100ns;
---Instr <= "100010001010";
---wait ;
+
 
 
 end process;

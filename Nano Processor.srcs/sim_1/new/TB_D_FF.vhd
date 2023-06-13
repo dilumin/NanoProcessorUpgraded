@@ -59,26 +59,22 @@ port map (
 Clk_process :process
     begin
     Clk <= '0';
-    wait for 1ns;
+    wait for 10ns;
     Clk <= '1';
-    wait for 1ns;
+    wait for 10ns;
 end process;
 
-reset_process : process
-begin 
-    Res <= '0';
-    wait for 9ns;
-    Res <= '1';
-    wait for 6 ns;
-end process;
 
 D_FF_process : process
 begin
+    Res <= '0';
     D <= '1';
-    wait for 15ns;
+    wait for 40ns;
     D <= '0';
-    wait for 15ns;
+    wait for 40ns;
     D <= '1';
+    wait for 80ns;
+    Res <= '1';
     wait;
 end process;
 

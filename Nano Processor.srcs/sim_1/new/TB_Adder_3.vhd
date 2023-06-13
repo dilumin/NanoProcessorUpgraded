@@ -31,46 +31,46 @@ use IEEE.STD_LOGIC_1164.ALL;
 --library UNISIM;
 --use UNISIM.VComponents.all;
 
-entity TB_Adder_3 is
+entity TB_Adder_4 is
 --  Port ( );
-end TB_Adder_3;
+end TB_Adder_4;
 
-architecture Behavioral of TB_Adder_3 is
-component Adder_bit_3
-    Port ( A : in STD_LOGIC_VECTOR (2 downto 0);
-           S : out STD_LOGIC_VECTOR (2 downto 0));
+architecture Behavioral of TB_Adder_4 is
+component Adder_bit_4
+    Port ( A : in STD_LOGIC_VECTOR (3 downto 0);
+           S : out STD_LOGIC_VECTOR (3 downto 0));
 end component;
-signal A, S : STD_LOGIC_VECTOR (2 downto 0);
+signal A, S : STD_LOGIC_VECTOR (3 downto 0);
 begin
-    UUT : Adder_bit_3
+    UUT : Adder_bit_4
         PORT MAP(
         A => A,
         S => S
         );
     process
          begin
-         A <= "000";
+         A <= "0000";
          WAIT FOR 20ns;
           
-         A <= "001";
+         A <= "0010";
          WAIT FOR 20ns;
         
-         A <= "010";
+         A <= "0100";
          WAIT FOR 20ns;
         
-         A <= "011";
+         A <= "0110";
          WAIT FOR 20ns;
 
-         A <= "100";
+         A <= "1000";
          WAIT FOR 20ns;
 
-         A <= "101";
+         A <= "1010";
          WAIT FOR 20ns;
          
-         A <= "110";
+         A <= "1100";
          WAIT FOR 20ns;
         
-         A <= "111";
+         A <= "1110";
          WAIT;
      end process;
 

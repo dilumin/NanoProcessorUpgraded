@@ -1,6 +1,6 @@
-webtalk_init -webtalk_dir C:/Users/Verosha Kriyanjala/Desktop/Nano Processor/Nano Processor.sim/sim_1/behav/xsim/xsim.dir/TB_Sub_Add_4_bit_behav/webtalk/
+webtalk_init -webtalk_dir C:/Users/dilum/Desktop/NanoProcessorUpgraded/Nano Processor.sim/sim_1/behav/xsim/xsim.dir/TB_Sub_Add_4_bit_behav/webtalk/
 webtalk_register_client -client project
-webtalk_add_data -client project -key date_generated -value "Wed May 31 17:35:25 2023" -context "software_version_and_target_device"
+webtalk_add_data -client project -key date_generated -value "Sun Jun 11 23:58:27 2023" -context "software_version_and_target_device"
 webtalk_add_data -client project -key product_version -value "XSIM v2018.2 (64-bit)" -context "software_version_and_target_device"
 webtalk_add_data -client project -key build_version -value "2258646" -context "software_version_and_target_device"
 webtalk_add_data -client project -key os_platform -value "WIN64" -context "software_version_and_target_device"
@@ -12,21 +12,21 @@ webtalk_add_data -client project -key target_family -value "not_applicable" -con
 webtalk_add_data -client project -key target_device -value "not_applicable" -context "software_version_and_target_device"
 webtalk_add_data -client project -key target_package -value "not_applicable" -context "software_version_and_target_device"
 webtalk_add_data -client project -key target_speed -value "not_applicable" -context "software_version_and_target_device"
-webtalk_add_data -client project -key random_id -value "1012bf87-4210-40f7-b0fd-d69842530acd" -context "software_version_and_target_device"
+webtalk_add_data -client project -key random_id -value "c5c05e698f93542bb4e13cbbe9cacb75" -context "software_version_and_target_device"
 webtalk_add_data -client project -key project_id -value "2336290a19254460a9c4c30458859528" -context "software_version_and_target_device"
-webtalk_add_data -client project -key project_iteration -value "4" -context "software_version_and_target_device"
+webtalk_add_data -client project -key project_iteration -value "9" -context "software_version_and_target_device"
 webtalk_add_data -client project -key os_name -value "Microsoft Windows 8 or later , 64-bit" -context "user_environment"
 webtalk_add_data -client project -key os_release -value "major release  (build 9200)" -context "user_environment"
-webtalk_add_data -client project -key cpu_name -value "11th Gen Intel(R) Core(TM) i7-1165G7 @ 2.80GHz" -context "user_environment"
-webtalk_add_data -client project -key cpu_speed -value "2803 MHz" -context "user_environment"
+webtalk_add_data -client project -key cpu_name -value "AMD Ryzen 9 5900HS with Radeon Graphics        " -context "user_environment"
+webtalk_add_data -client project -key cpu_speed -value "3294 MHz" -context "user_environment"
 webtalk_add_data -client project -key total_processors -value "1" -context "user_environment"
-webtalk_add_data -client project -key system_ram -value "8.000 GB" -context "user_environment"
+webtalk_add_data -client project -key system_ram -value "16.000 GB" -context "user_environment"
 webtalk_register_client -client xsim
 webtalk_add_data -client xsim -key Command -value "xsim" -context "xsim\\command_line_options"
 webtalk_add_data -client xsim -key trace_waveform -value "true" -context "xsim\\usage"
 webtalk_add_data -client xsim -key runtime -value "1 us" -context "xsim\\usage"
-webtalk_add_data -client xsim -key iteration -value "5" -context "xsim\\usage"
+webtalk_add_data -client xsim -key iteration -value "0" -context "xsim\\usage"
 webtalk_add_data -client xsim -key Simulation_Time -value "0.00_sec" -context "xsim\\usage"
-webtalk_add_data -client xsim -key Simulation_Memory -value "7116_KB" -context "xsim\\usage"
-webtalk_transmit -clientid 4119903271 -regid "" -xml C:/Users/Verosha Kriyanjala/Desktop/Nano Processor/Nano Processor.sim/sim_1/behav/xsim/xsim.dir/TB_Sub_Add_4_bit_behav/webtalk/usage_statistics_ext_xsim.xml -html C:/Users/Verosha Kriyanjala/Desktop/Nano Processor/Nano Processor.sim/sim_1/behav/xsim/xsim.dir/TB_Sub_Add_4_bit_behav/webtalk/usage_statistics_ext_xsim.html -wdm C:/Users/Verosha Kriyanjala/Desktop/Nano Processor/Nano Processor.sim/sim_1/behav/xsim/xsim.dir/TB_Sub_Add_4_bit_behav/webtalk/usage_statistics_ext_xsim.wdm -intro "<H3>XSIM Usage Report</H3><BR>"
+webtalk_add_data -client xsim -key Simulation_Memory -value "7128_KB" -context "xsim\\usage"
+webtalk_transmit -clientid 663960704 -regid "" -xml C:/Users/dilum/Desktop/NanoProcessorUpgraded/Nano Processor.sim/sim_1/behav/xsim/xsim.dir/TB_Sub_Add_4_bit_behav/webtalk/usage_statistics_ext_xsim.xml -html C:/Users/dilum/Desktop/NanoProcessorUpgraded/Nano Processor.sim/sim_1/behav/xsim/xsim.dir/TB_Sub_Add_4_bit_behav/webtalk/usage_statistics_ext_xsim.html -wdm C:/Users/dilum/Desktop/NanoProcessorUpgraded/Nano Processor.sim/sim_1/behav/xsim/xsim.dir/TB_Sub_Add_4_bit_behav/webtalk/usage_statistics_ext_xsim.wdm -intro "<H3>XSIM Usage Report</H3><BR>"
 webtalk_terminate

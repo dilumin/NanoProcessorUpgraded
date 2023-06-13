@@ -60,14 +60,18 @@ UUT : Sub_Add_4_bit
     process
         begin
             m <= '0';
-            a <= "1010";
-            b <= "1110";      
+            a <= "0011";
+            b <= "0100";      
             WAIT FOR 100ns;
             
+            a <= "1101";
+            wait for 100ns;
             m <= '1';
-            a <= "1010";
+            a <= "1100";
+            b <= "0100";
+            wait for 100ns;
             b <= "1110";      
-            WAIT FOR 100ns;
+            WAIT ;
             
     end process;   
 

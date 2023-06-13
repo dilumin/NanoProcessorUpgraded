@@ -38,12 +38,12 @@ end TB_ROM;
 architecture Behavioral of TB_ROM is
 
 component ROM
-    Port ( Mem_S : in STD_LOGIC_VECTOR (2 downto 0);
-       I : out STD_LOGIC_VECTOR (11 downto 0));
+    Port ( Mem_S : in STD_LOGIC_VECTOR (3 downto 0);
+       I : out STD_LOGIC_VECTOR (12 downto 0));
 end component;
 
-signal Mem_S : STD_LOGIC_VECTOR (2 downto 0);
-signal I : STD_LOGIC_VECTOR (11 downto 0);
+signal Mem_S : STD_LOGIC_VECTOR (3 downto 0);
+signal I : STD_LOGIC_VECTOR (12 downto 0);
 
 begin
 UUT : ROM 
@@ -55,11 +55,11 @@ port map(
 process
 begin
 
-    Mem_S <= "000";
+    Mem_S <= "0000";
     wait for 50ns;
-    Mem_S <= "001";
+    Mem_S <= "0010";
     wait for 50ns;
-    Mem_S <= "010";
+    Mem_S <= "0100";
     wait;
 end process;
 

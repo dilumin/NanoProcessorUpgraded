@@ -38,13 +38,13 @@ end TB_Program_counter;
 architecture Behavioral of TB_Program_counter is
 
 component Program_counter
-    Port ( I : in STD_LOGIC_VECTOR (2 downto 0);
-       Q : out STD_LOGIC_VECTOR (2 downto 0);
+    Port ( I : in STD_LOGIC_VECTOR (3 downto 0);
+       Q : out STD_LOGIC_VECTOR (3 downto 0);
        res : in STD_LOGIC;
        Clk : in STD_LOGIC);
 end component;
 
-signal I , Q : STD_LOGIC_VECTOR (2 downto 0);
+signal I , Q : STD_LOGIC_VECTOR (3 downto 0);
 signal res , Clk : STD_LOGIC;
 
 begin
@@ -67,13 +67,13 @@ end process;
 pc_process : process
     begin
     res <= '0';
-    I <= "101";
+    I <= "1010";
     wait for 10ns;
-    I <= "111";
+    I <= "1110";
     wait for 10ns;
-    I <= "010";
+    I <= "0100";
     wait for 10ns;
-    I <= "110";
+    I <= "1100";
     res <= '1';
     wait for 20ns;
     res <= '0';

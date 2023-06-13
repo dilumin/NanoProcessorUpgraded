@@ -79,24 +79,16 @@ Decoder_0 : Decoder_3_to_8
         Y => Y1
     );
 Reg_en <= Instr (9 downto 7);
---L_sel <=
---kk(0)  <= NOT (Y1(2));
---kk(1) <= '0';
 
-
-
---L_sel<= kk when NOT (Instr (12) = '1') else  "11";
 L_sel <= Instr (12 downto 10);
 
 
---L_sel <=  (Y1(2) OR Y1(3)) AND ( NOT Instr(11)) ;
 
 Val <= Instr (3 downto 0);
 
 Reg_sel_0 <= Instr (9 downto 7) ;
 Reg_sel_1 <= Instr (6 downto 4) ;
---Reg_sel_0 <= Instr (6 downto 4) ;
---Reg_sel_1 <= Instr (9 downto 7) ;
+
 
 Add_Sub_sel <= ( Y1(0) OR Y1(1) ) AND Instr(10) ;
 

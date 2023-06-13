@@ -58,10 +58,6 @@ Port ( D : in STD_LOGIC_VECTOR (3 downto 0);
            Res : in STD_LOGIC);
 end component;
 
---component Slow_Clk
---Port ( Clk_in : in STD_LOGIC;
---       Clk_out : out STD_LOGIC);
---end component;
 
 
 component Decoder_3_to_8
@@ -75,10 +71,7 @@ signal Enable_reg : STD_LOGIC_VECTOR (7 downto 0);
 
 begin
 
---slow_down_Clk : Slow_Clk
---port map(
---    Clk_in => Clk_in,
---    Clk_out => slowed_clk);
+
 
 decoder : Decoder_3_to_8
 port map(
@@ -89,15 +82,6 @@ port map(
 
 
 
-
---reg_0 : reg
---port map(
---    D => Mem_in,
---    en => Enable_reg(0),
---    Clk => Clk_in,
---    Q => MO_0,
---    Res => res    
---);
 MO_0 <= "0000";
 
 reg_1 : reg
